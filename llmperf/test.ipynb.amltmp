@@ -1,0 +1,258 @@
+{
+  "cells": [
+    {
+      "cell_type": "code",
+      "source": [
+        "%pip install transformers"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": "Requirement already satisfied: transformers in /anaconda/envs/azureml_py310_sdkv2/lib/python3.10/site-packages (4.37.2)\nRequirement already satisfied: filelock in /anaconda/envs/azureml_py310_sdkv2/lib/python3.10/site-packages (from transformers) (3.12.2)\nRequirement already satisfied: huggingface-hub<1.0,>=0.19.3 in /anaconda/envs/azureml_py310_sdkv2/lib/python3.10/site-packages (from transformers) (0.20.3)\nRequirement already satisfied: numpy>=1.17 in /anaconda/envs/azureml_py310_sdkv2/lib/python3.10/site-packages (from transformers) (1.25.0)\nRequirement already satisfied: packaging>=20.0 in /anaconda/envs/azureml_py310_sdkv2/lib/python3.10/site-packages (from transformers) (23.0)\nRequirement already satisfied: pyyaml>=5.1 in /anaconda/envs/azureml_py310_sdkv2/lib/python3.10/site-packages (from transformers) (6.0)\nRequirement already satisfied: regex!=2019.12.17 in /anaconda/envs/azureml_py310_sdkv2/lib/python3.10/site-packages (from transformers) (2023.12.25)\nRequirement already satisfied: requests in /anaconda/envs/azureml_py310_sdkv2/lib/python3.10/site-packages (from transformers) (2.31.0)\nRequirement already satisfied: tokenizers<0.19,>=0.14 in /anaconda/envs/azureml_py310_sdkv2/lib/python3.10/site-packages (from transformers) (0.15.2)\nRequirement already satisfied: safetensors>=0.4.1 in /anaconda/envs/azureml_py310_sdkv2/lib/python3.10/site-packages (from transformers) (0.4.2)\nRequirement already satisfied: tqdm>=4.27 in /anaconda/envs/azureml_py310_sdkv2/lib/python3.10/site-packages (from transformers) (4.65.0)\nRequirement already satisfied: fsspec>=2023.5.0 in /anaconda/envs/azureml_py310_sdkv2/lib/python3.10/site-packages (from huggingface-hub<1.0,>=0.19.3->transformers) (2023.6.0)\nRequirement already satisfied: typing-extensions>=3.7.4.3 in /anaconda/envs/azureml_py310_sdkv2/lib/python3.10/site-packages (from huggingface-hub<1.0,>=0.19.3->transformers) (4.6.3)\nRequirement already satisfied: charset-normalizer<4,>=2 in /anaconda/envs/azureml_py310_sdkv2/lib/python3.10/site-packages (from requests->transformers) (3.1.0)\nRequirement already satisfied: idna<4,>=2.5 in /anaconda/envs/azureml_py310_sdkv2/lib/python3.10/site-packages (from requests->transformers) (3.4)\nRequirement already satisfied: urllib3<3,>=1.21.1 in /anaconda/envs/azureml_py310_sdkv2/lib/python3.10/site-packages (from requests->transformers) (1.26.16)\nRequirement already satisfied: certifi>=2017.4.17 in /anaconda/envs/azureml_py310_sdkv2/lib/python3.10/site-packages (from requests->transformers) (2023.5.7)\nNote: you may need to restart the kernel to use updated packages.\n"
+        }
+      ],
+      "execution_count": 1,
+      "metadata": {
+        "jupyter": {
+          "source_hidden": false,
+          "outputs_hidden": false
+        },
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        }
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from transformers import LlamaTokenizerFast"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stderr",
+          "text": "/anaconda/envs/azureml_py310_sdkv2/lib/python3.10/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html\n  from .autonotebook import tqdm as notebook_tqdm\nNone of PyTorch, TensorFlow >= 2.0, or Flax have been found. Models won't be available and only tokenizers, configuration and file/data utilities can be used.\n"
+        }
+      ],
+      "execution_count": 2,
+      "metadata": {
+        "jupyter": {
+          "source_hidden": false,
+          "outputs_hidden": false
+        },
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        },
+        "gather": {
+          "logged": 1707809257344
+        }
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        " tokenizer = LlamaTokenizerFast.from_pretrained(\n",
+        "        \"hf-internal-testing/llama-tokenizer\"\n",
+        "    )"
+      ],
+      "outputs": [],
+      "execution_count": 3,
+      "metadata": {
+        "gather": {
+          "logged": 1707809257603
+        }
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "tokenizer"
+      ],
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "execution_count": 4,
+          "data": {
+            "text/plain": "LlamaTokenizerFast(name_or_path='hf-internal-testing/llama-tokenizer', vocab_size=32000, model_max_length=2048, is_fast=True, padding_side='left', truncation_side='right', special_tokens={'bos_token': '<s>', 'eos_token': '</s>', 'unk_token': '<unk>'}, clean_up_tokenization_spaces=False),  added_tokens_decoder={\n\t0: AddedToken(\"<unk>\", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),\n\t1: AddedToken(\"<s>\", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),\n\t2: AddedToken(\"</s>\", rstrip=False, lstrip=False, single_word=False, normalized=True, special=True),\n}"
+          },
+          "metadata": {}
+        }
+      ],
+      "execution_count": 4,
+      "metadata": {
+        "jupyter": {
+          "source_hidden": false,
+          "outputs_hidden": false
+        },
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        },
+        "gather": {
+          "logged": 1707809257774
+        }
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "get_token_length = lambda text: len(tokenizer.encode(text))"
+      ],
+      "outputs": [],
+      "execution_count": 5,
+      "metadata": {
+        "jupyter": {
+          "source_hidden": false,
+          "outputs_hidden": false
+        },
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        },
+        "gather": {
+          "logged": 1707809257937
+        }
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "lambda text: tokenizer.encode(text)"
+      ],
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "execution_count": 7,
+          "data": {
+            "text/plain": "<function __main__.<lambda>(text)>"
+          },
+          "metadata": {}
+        }
+      ],
+      "execution_count": 7,
+      "metadata": {
+        "jupyter": {
+          "source_hidden": false,
+          "outputs_hidden": false
+        },
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        },
+        "gather": {
+          "logged": 1707809528731
+        }
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "get_token_length"
+      ],
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "execution_count": 8,
+          "data": {
+            "text/plain": "<function __main__.<lambda>(text)>"
+          },
+          "metadata": {}
+        }
+      ],
+      "execution_count": 8,
+      "metadata": {
+        "jupyter": {
+          "source_hidden": false,
+          "outputs_hidden": false
+        },
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        },
+        "gather": {
+          "logged": 1707809544346
+        }
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import requests\n",
+        "url = 'https://www.amazon.in//api'\n",
+        "data = {'product': 'Clothing', 'gender': 25}\n",
+        "response = requests.post(url, json=data)\n",
+        "print(response.status_code)\n",
+        "print(response.headers['Content-Type'])\n",
+        "# print(response.json())"
+      ],
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": "404\ntext/html; charset=UTF-8\n"
+        }
+      ],
+      "execution_count": 4,
+      "metadata": {
+        "jupyter": {
+          "source_hidden": false,
+          "outputs_hidden": false
+        },
+        "nteract": {
+          "transient": {
+            "deleting": false
+          }
+        },
+        "gather": {
+          "logged": 1707897242955
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "kernelspec": {
+      "name": "python310-sdkv2",
+      "language": "python",
+      "display_name": "Python 3.10 - SDK v2"
+    },
+    "language_info": {
+      "name": "python",
+      "version": "3.10.11",
+      "mimetype": "text/x-python",
+      "codemirror_mode": {
+        "name": "ipython",
+        "version": 3
+      },
+      "pygments_lexer": "ipython3",
+      "nbconvert_exporter": "python",
+      "file_extension": ".py"
+    },
+    "microsoft": {
+      "ms_spell_check": {
+        "ms_spell_check_language": "en"
+      },
+      "host": {
+        "AzureML": {
+          "notebookHasBeenCompleted": true
+        }
+      }
+    },
+    "kernel_info": {
+      "name": "python310-sdkv2"
+    },
+    "nteract": {
+      "version": "nteract-front-end@1.0.0"
+    }
+  },
+  "nbformat": 4,
+  "nbformat_minor": 2
+}

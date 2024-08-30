@@ -1,0 +1,39 @@
+name: llmperf_test
+display_name: llmperf_test
+#version: 1b
+type: command
+inputs:
+  mean-input-tokens: 
+    type: number
+    default: 100
+  stddev-input-tokens: 
+    type: number
+    default: 2 
+  mean-output-tokens: 
+    type: number
+    default: 400
+  stddev-output-tokens: 
+    type: number
+    default: 2 
+  max-num-completed-requests: 
+    type: number
+    default: 100
+  num-concurrent-requests: 
+    type: number
+    default: 10
+
+# code: ./llmperf
+# environment: azureml://locations/eastus/workspaces/52e6e75c-0813-4c25-90fc-7e8ba6e37dc9/environments/llmperf-env/versions/9
+command: >-
+  python check.py 
+  --model "llama-3-70b-instruct" 
+  --mean-input-tokens ${{inputs.mean-input-tokens}} 
+  --stddev-input-tokens 2
+  --mean-output-tokens 400
+  --stddev-output-tokens 2
+  --max-num-completed-requests 500
+  --timeout 600
+  --num-concurrent-requests 10
+  --results-dir "result_outputs_May17_llama-3-70b-instruct_100_400_500_10"
+  --llm-api openai
+  --additional-sampling-params '{}'

@@ -1,0 +1,17 @@
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - numpy
+  - ray
+  - pip
+  - pip:
+      - transformers --upgrade
+      - pydantic==1.9.1
+      - gpustat --force-reinstall
+      - azure-keyvault-secrets
+      - azure-core --upgrade
+      - ray
+      - modin[all]
+name: testenv
