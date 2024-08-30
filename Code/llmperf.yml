@@ -1,0 +1,40 @@
+name: llmperformance_Azure_westus
+display_name: llmperformance_Azure_westus
+#version: 1b
+type: command
+inputs:
+  mean-input-tokens: 
+    type: number
+    default: 800
+  stddev-input-tokens: 
+    type: number
+    default: 2 
+  mean-output-tokens: 
+    type: number
+    default: 200
+  stddev-output-tokens: 
+    type: number
+    default: 2 
+  max-num-completed-requests: 
+    type: number
+    default: 10
+  num-concurrent-requests: 
+    type: number
+    default: 1
+outputs:
+  results_dir:
+    type: uri_folder
+environment: azureml://locations/southcentralus/workspaces/2260481d-7183-4d27-b457-623333d3ee73/environments/llmperf-env/versions/2
+command: >-
+  python token_benchmark.py 
+  --model "llama-3-70b-instruct" 
+  --mean-input-tokens ${{inputs.mean-input-tokens}} 
+  --stddev-input-tokens ${{inputs.stddev-input-tokens}} 
+  --mean-output-tokens ${{inputs.mean-output-tokens}} 
+  --stddev-output-tokens ${{inputs.stddev-output-tokens}} 
+  --max-num-completed-requests ${{inputs.max-num-completed-requests}} 
+  --timeout 600
+  --num-concurrent-requests ${{inputs.max-num-completed-requests}} 
+  --results_dir ${{outputs.results_dir}} 
+  --llm-api openai
+  --additional-sampling-params '{}'

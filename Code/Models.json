@@ -1,0 +1,203 @@
+{
+  "config": [
+    {
+    "subscription_id": "75703df0-38f9-4e2e-8328-45f6fc810286",
+    "resource_group": "rg-sonata-westus",
+    "workspaces": "llmperf-project-westus",
+    "region": "westus",
+    "Provider_Platform": "Azure MaaS"
+    }
+  ],
+    "Models":[
+        "Mistral-small",
+        "Cohere-command-r-plus",
+        "Llama-2-7b-chat",
+        "Llama-2-13b",
+        "Llama-2-70b-chat",
+        "Llama-2-70b",
+        "Llama-2-7b",
+        "Llama-2-13b-chat",
+        "Meta-Llama-3-70B-Instruct",
+        "Cohere-command-r",
+        "jais-30b-chat",
+        "jamba-instruct",
+        "Mistral-large-2407",
+        "Mistral-Nemo",
+        "Meta-Llama-3-1-405B-Instruct",
+        "Meta-Llama-3-1-70B-Instruct",
+        "Meta-Llama-3-1-8B-Instruct",
+        "AI21-Jamba-1-5-Mini",
+        "AI21-Jamba-1-5-Large",
+        "Phi-3-5-mini-instruct"
+    ],
+    "secrets": [
+    {
+      "name": "Cohere-command-r-plus-apikey-westus",
+      "description": "Api-key"
+    },
+    {
+      "name": "Cohere-command-r-plus-endpoint-westus",
+      "description": "Endpoint"
+    },
+    {
+      "name": "Llama-2-13b-apikey-westus",
+      "description": "Api-key"
+    },
+    {
+      "name": "Llama-2-13b-endpoint-westus",
+      "description": "Endpoint"
+    },
+    {
+      "name": "Llama-2-7b-apikey-westus",
+      "description": "Api-key"
+    },
+    {
+      "name": "Llama-2-7b-endpoint-westus",
+      "description": "Endpoint"
+    },
+    {
+      "name": "Llama-2-70b-apikey-westus",
+      "description": "Api-key"
+    },
+    {
+      "name": "Llama-2-70b-endpoint-westus",
+      "description": "Endpoint"
+    },
+    {
+      "name": "Mistral-small-apikey-westus",
+      "description": "Api-key"
+    },
+    {
+      "name": "Mistral-small-endpoint-westus",
+      "description": "Endpoint"
+    },
+    {
+      "name": "Mistral-large-apikey-westus",
+      "description": "Api-key"
+    },
+    {
+      "name": "Mistral-large-endpoint-westus",
+      "description": "Endpoint"
+    },
+    {
+      "name": "jais-30b-chat-apikey-westus",
+      "description": "Api-key"
+    },
+    {
+      "name": "jais-30b-chat-endpoint-westus",
+      "description": "Endpoint"
+    },
+    {
+      "name": "Llama-2-13b-chat-apikey-westus",
+      "description": "Api-key"
+    },
+    {
+      "name": "Llama-2-13b-chat-endpoint-westus",
+      "description": "Endpoint"
+    },
+    {
+      "name": "Llama-2-70b-chat-apikey-westus",
+      "description": "Api-key"
+    },
+    {
+      "name": "Llama-2-70b-chat-endpoint-westus",
+      "description": "Endpoint"
+    },
+    {
+      "name": "Meta-Llama-3-70B-Instruct-apikey-westus",
+      "description": "Api-key"
+    },
+    {
+      "name": "Meta-Llama-3-70B-Instruct-endpoint-westus",
+      "description": "Endpoint"
+    },
+    {
+      "name": "Llama-2-7b-chat-apikey-westus",
+      "description": "Api-key"
+    },
+    {
+      "name": "Llama-2-7b-chat-endpoint-westus",
+      "description": "Endpoint"
+    },
+    {
+      "name": "Cohere-command-r-apikey-westus",
+      "description": "Api-key"
+    },
+    {
+      "name": "Cohere-command-r-endpoint-westus",
+      "description": "Endpoint"
+    },
+    {
+      "name": "jamba-instruct-apikey-westus",
+      "description": "Api-key"
+    },
+    {
+      "name": "jamba-instruct-endpoint-westus",
+      "description": "Endpoint"
+    },
+    {
+      "name": "Mistral-Nemo-apikey-westus",
+      "description": "Api-key"
+    },
+    {
+      "name": "Mistral-Nemo-endpoint-westus",
+      "description": "Endpoint"
+    },
+    {
+      "name": "Mistral-large-2407-apikey-westus",
+      "description": "Api-key"
+    },
+    {
+      "name": "Mistral-large-2407-endpoint-westus",
+      "description": "Endpoint"
+    },
+    {
+      "name": "Meta-Llama-3-1-405B-Instruct-apikey-westus",
+      "description": "Api-key"
+    },
+    {
+      "name": "Meta-Llama-3-1-405B-Instruct-endpoint-westus",
+      "description": "Endpoint"
+    },
+    {
+      "name": "Meta-Llama-3-1-70B-Instruct-apikey-westus",
+      "description": "Api-key"
+    },
+    {
+      "name": "Meta-Llama-3-1-70B-Instruct-endpoint-westus",
+      "description": "Endpoint"
+    },
+    {
+      "name": "Meta-Llama-3-1-8B-Instruct-apikey-westus",
+      "description": "Api-key"
+    },
+    {
+      "name": "Meta-Llama-3-1-8B-Instruct-endpoint-westus",
+      "description": "Endpoint"
+    },
+    {
+      "name": "AI21-Jamba-1-5-Mini-apikey-westus",
+      "description": "Api-key"
+    },
+    {
+      "name": "AI21-Jamba-1-5-Mini-endpoint-westus",
+      "description": "Endpoint"
+    },
+    {
+      "name": "AI21-Jamba-1-5-Large-apikey-westus",
+      "description": "Api-key"
+    },
+    {
+      "name": "AI21-Jamba-1-5-Large-endpoint-westus",
+      "description": "Endpoint"
+    },
+    {
+      "name": "Phi-3-5-mini-instruct-apikey-westus",
+      "description": "Api-key"
+    },
+    {
+      "name": "Phi-3-5-mini-instruct-endpoint-westus",
+      "description": "Endpoint"
+    }
+  ]  
+}
