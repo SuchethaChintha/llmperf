@@ -1,0 +1,6 @@
+{
+    "Models":[
+        "Cohere-command-r-plus"
+        "Mistral-small",
+    ]
+}
